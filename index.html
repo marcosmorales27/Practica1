@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi componente web</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background-color: #9400D3;    
+        }
+    </style>
+</head>
+<body>
+    <!-- uso de HTML template para definir la estructura de mi componente -->
+    <template id="tarjeta-usuario">
+        <style>
+            .card {
+                background: #ffffff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                width: 300px;
+                text-align: center;
+                overflow: hidden;
+            }
+            .card img{
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+            .content {
+                padding: 15px;
+            }
+            .name {
+                font-size: 1.5em;
+                margin: 10px 0;
+            }
+            /* CORRECCIÓN 4: Cambiado a 'descripcion' para coincidir con el HTML */
+            .descripcion { 
+                font-size: 25px;
+                color: #000000; /* Cambié a gris oscuro para que se lea sobre fondo blanco */
+            }
+        </style>
+        
+        <div class="card">
+            <img id="foto-usuario" src="" alt="Foto de usuario">
+            <div class="content">
+                <h4 class="name"><slot name="nombre">Nombre por defecto</slot></h4>
+                <p class="descripcion"><slot name="descripcion">Descripción por defecto</slot></p>
+            </div>
+        </div>
+    </template>
+    <!-- uso del componente personalizado -->
+    <tarjeta-usuario foto="https://www.ociolatino.com/wp-content/uploads/2016/06/muhammad-ali-610x772.jpg">
+        <span slot="nombre">Mohamed Ali</span>
+        <span slot="descripcion">Boxeador.</span>
+    </tarjeta-usuario>
+
+    <script src="comportamiento.js"></script>
+</body>
+</html>
