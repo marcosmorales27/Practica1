@@ -19,8 +19,6 @@ class TarjetaUsuario extends HTMLElement {
         if (urlFoto && imgElement) {
             imgElement.src = urlFoto;
         } else if (imgElement) {
-            // Nota: Aquí es mejor poner un link a una imagen por defecto 
-            // en vez de 'sin foto', ya que 'sin foto' romperá el ícono de la imagen.
             imgElement.src = 'https://via.placeholder.com/300x150?text=Sin+Foto';
         }
     }
